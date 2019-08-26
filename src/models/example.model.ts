@@ -1,22 +1,19 @@
-import { Document, Model, model, Schema } from 'mongoose'
+import { Document, Model, model, Schema } from "mongoose";
 
-export interface IExample extends Document {
-  name: string
-  creted: Date
+export interface Example extends Document {
+  name: string;
+  creted: Date;
 }
 
-export let ExampleSchema: Schema = new Schema({
+export const ExampleSchema: Schema = new Schema({
   name: {
     type: Schema.Types.String,
-    required: true,
+    required: true
   },
   created: {
     type: Schema.Types.String,
-    default: Date.now(),
-  },
-})
+    default: Date.now()
+  }
+});
 
-export const Example: Model<IExample> = model<IExample>(
-  'Example',
-  ExampleSchema,
-)
+export const Example: Model<Example> = model<Example>("Example", ExampleSchema);

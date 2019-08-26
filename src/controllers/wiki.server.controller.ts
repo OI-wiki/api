@@ -3,21 +3,21 @@ import { Request, Response } from "express";
 import Config from "../config/config";
 import * as path from "path";
 import * as fs from "fs";
-import * as _ from "lodash";
+import { trim } from "lodash";
 
 export default class IndexController {
-  public index(req: Request, res: Response, next: Function): void {
+  public index(req: Request, res: Response): void {
     res.render("index", { title: "Express" });
   }
 
   public wiki(req: Request, res: Response): void {
     try {
-      let requested_path = req.params["0"];
-      requested_path = _.trim(requested_path, "/");
-      let file_path =
-        path.join(Config.baseFolder, "docs", requested_path) + ".md";
-      let file_ = fs.readFileSync(file_path, "utf8");
-      let result = file_;
+      let requestedPath = req.params["0"];
+      requestedPath = trim(requestedPath, "/");
+      const filePath =
+        path.join(Config.baseFolder, "docs", requestedPath) + ".md";
+      const file_ = fs.readFileSync(filePath, "utf8");
+      const result = file_;
       res.send({ status: 1, results: result });
     } catch (e) {
       console.log(e);
@@ -26,12 +26,12 @@ export default class IndexController {
   }
   public raw(req: Request, res: Response): void {
     try {
-      let requested_path = req.params["0"];
-      requested_path = _.trim(requested_path, "/");
-      let file_path =
-        path.join(Config.baseFolder, "docs", requested_path) + ".md";
-      let file_ = fs.readFileSync(file_path, "utf8");
-      let result = file_;
+      let requestedPath = req.params["0"];
+      requestedPath = trim(requestedPath, "/");
+      const filePath =
+        path.join(Config.baseFolder, "docs", requestedPath) + ".md";
+      const file_ = fs.readFileSync(filePath, "utf8");
+      const result = file_;
       res.setHeader("Content-Type", "text/plain");
       res.send(result);
     } catch (e) {

@@ -6,7 +6,7 @@ export default class Config {
   public static routes = "./dist/routes/**/*.js";
   public static models = "./dist/models/**/*.js";
   public static useMongo = false;
-  public static baseFolder = "/home/ir1d/Documents/repo/OI-wiki";
+  public static baseFolder = "/var/www/OI-wiki";
   public static mongodb =
     process.env.NODE_ENV === "docker"
       ? "mongodb://mongo:27017/express-typescript-starter"

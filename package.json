@@ -11,10 +11,14 @@
     "start": "node dist/index.js",
     "build:docker": "docker build -t rjmacarthy/express-typescript-starter .",
     "docker:compose": "docker-compose up",
-    "format": "prettier --write 'src/**/*ts'",
+    "format": "eslint \"src/**/*.ts\" --fix && prettier \"src/**/*.{ts,json,md}\" --write",
+    "format:check": "eslint \"src/**/*.ts\" && prettier-check \"src/**/*.{ts,json,md}\"",
     "lint": "tslint -c tslint.json 'src/**/*.ts'",
     "lint:test": "tslint -c tslint.json 'spec/**/*.ts'",
     "format:test": "prettier --write 'spec/**/*ts'"
+  },
+  "gitHooks": {
+    "pre-commit": "npm run format:check"
   },
   "dependencies": {
     "body-parser": "^1.13.3",
@@ -31,6 +35,7 @@
     "pug": "^2.0.3",
     "serve-favicon": "^2.5.0",
     "socket.io": "^2.2.0",
+    "swagger-ui-express": "^4.0.7",
     "tslint-config-prettier": "^1.18.0"
   },
   "devDependencies": {
@@ -43,12 +48,18 @@
     "@types/node": "^8.10.52",
     "@types/sinon": "^4.3.3",
     "@types/socket.io": "^2.1.2",
+    "@typescript-eslint/eslint-plugin": "^2.0.0",
+    "@typescript-eslint/parser": "^2.0.0",
     "chai": "^4.1.2",
     "concurrently": "^3.5.0",
+    "eslint": "^6.2.2",
+    "eslint-config-prettier": "^6.1.0",
+    "eslint-plugin-prettier": "^3.1.0",
     "mocha": "^5.1.1",
     "node-mocks-http": "^1.7.0",
     "nodemon": "^1.17.4",
     "prettier": "^1.18.2",
+    "prettier-check": "^2.0.0",
     "sinon": "^5.0.7",
     "tslint": "^5.18.0",
     "typescript": "^2.4.1"
