@@ -15,7 +15,7 @@
     "format:check": "eslint \"src/**/*.ts\" && prettier-check \"src/**/*.{ts,json,md}\"",
     "lint": "tslint -c tslint.json 'src/**/*.ts'",
     "lint:test": "tslint -c tslint.json 'spec/**/*.ts'",
-    "format:test": "prettier --write 'spec/**/*ts'"
+    "format:test": "prettier --write 'spec/**/*.ts'"
   },
   "gitHooks": {
     "pre-commit": "npm run format:check"
