@@ -10,7 +10,7 @@ export default class IndexController {
     res.render("index", { title: "Express" });
   }
 
-  public wiki(req: Request, res: Response): void {
+  public md(req: Request, res: Response): void {
     try {
       let requestedPath = req.params["0"];
       requestedPath = trim(requestedPath, "/");
@@ -18,6 +18,7 @@ export default class IndexController {
         path.join(Config.baseFolder, "docs", requestedPath) + ".md";
       const file_ = fs.readFileSync(filePath, "utf8");
       const result = file_;
+      res.setHeader("Cache-Control", "public, max-age=604800"); // 7 days
       res.send({ status: 1, results: result });
     } catch (e) {
       console.log(e);
@@ -33,6 +34,7 @@ export default class IndexController {
       const file_ = fs.readFileSync(filePath, "utf8");
       const result = file_;
       res.setHeader("Content-Type", "text/plain");
+      res.setHeader("Cache-Control", "public, max-age=604800"); // 7 days
       res.send(result);
     } catch (e) {
       console.log(e);

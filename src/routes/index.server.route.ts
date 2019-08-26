@@ -6,7 +6,7 @@ export default class IndexRoute {
   constructor(app: Express) {
     app.route("/").get(indexController.index);
     app.route("/msg").get(indexController.msg);
-    app.route("/wiki/*").get(wikiController.wiki);
-    app.route("/wikiraw/*").get(wikiController.raw);
+    app.route("/wiki/md/*").get(wikiController.md);
+    app.route("/wiki/raw/*").get(wikiController.raw);
   }
 }
