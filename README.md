@@ -1,6 +1,6 @@
 # API.oi-wiki.org
 
-A collection of public APIs maintained by the OI Wiki Team.
+A collection of public APIs maintained by the **OI Wiki** Team.
 
 ## Installation
 
