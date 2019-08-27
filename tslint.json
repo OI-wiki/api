@@ -8,7 +8,6 @@
       "eofline": true,
       "forin": true,
       "indent": [true, "spaces"],
-      "linebreak-style": [true, "LF"],
       "interface-name": false,
       "jsdoc-format": true,
       "label-position": true,
@@ -47,7 +46,7 @@
       ],
       "quotemark": [true, "single"],
       "radix": true,
-      "semicolon": [false, "always"],
+      "semicolon": [true, "never"],
       "switch-default": true,
       "triple-equals": [true, "allow-null-check"],
       "typedef": [
@@ -79,4 +78,3 @@
       ]
     }
   }
-  
