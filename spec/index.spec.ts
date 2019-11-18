@@ -20,6 +20,6 @@ describe('Index Controller', function() {
   it('Can get get json', () => {
     indexController.msg(null, res)
     const data = JSON.parse(res._getData())
-    expect(data.msg).to.equal('Hello!')
+    expect(data.msg).to.equal('Welcome to OI-wiki!')
   })
 })

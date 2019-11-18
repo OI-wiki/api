@@ -6,7 +6,7 @@ export default class IndexController {
   }
 
   public msg(req: Request, res: Response): void {
-    res.json({ msg: 'Hello!' })
+    res.json({ msg: 'Welcome to OI-wiki!' })
   }
 }
 
